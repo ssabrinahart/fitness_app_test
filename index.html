@@ -89,7 +89,14 @@
     <h2 style="justify-content: center; display: flex">Phase 1: Video Filtering and User Interface Integration
         Testing</h2>
     <p>
-        Intro Paragraph Goes Here
+        In phase one, our team is focusing on validating the filtering functionality within the fitness app, ensuring
+        that users can seamlessly apply, remove, and clear filters based on different criteria such as video labels,
+        genres, and account types. These tests are designed to confirm that the app accurately filters content based on
+        user preferences and subscription tier, ensuring that free-tier and Pro-tier users receive the appropriate
+        content. Additionally, we are examining the app's navigation flow, ensuring that users can easily log in,
+        navigate through the app, and interact with the video filtering system without issues. The table below outlines
+        the specific test cases designed to validate the app's filtering capabilities, UI responsiveness, and navigation
+        functionalities, ensuring a smooth user experience.
     </p>
     <div style="justify-content: center; display: flex">
 
@@ -124,19 +131,24 @@
             <tr>
                 <td>TC004</td>
                 <td>Video filtering for pro vs free accounts</td>
-                <td>Log in with a free account, navigate to the video list, and ensure only free videos are displayed.</td>
+                <td>Log in with a free account, navigate to the video list, and ensure only free videos are displayed.
+                </td>
                 <td>Free account users only see videos labeled as free. Pro videos are hidden.</td>
             </tr>
             <tr>
                 <td>TC005</td>
                 <td>Video filtering for pro accounts</td>
-                <td>Log in with a pro account, navigate to the video list, and ensure both free and pro videos are displayed.</td>
+                <td>Log in with a pro account, navigate to the video list, and ensure both free and pro videos are
+                    displayed.
+                </td>
                 <td>Pro account users see all videos labeled as free and pro.</td>
             </tr>
             <tr>
                 <td>TC006</td>
                 <td>Confirm video filtering based on account</td>
-                <td>Apply filters by genre, length, and account type, and validate the resulting video list matches expectations.</td>
+                <td>Apply filters by genre, length, and account type, and validate the resulting video list matches
+                    expectations.
+                </td>
                 <td>Video list accurately reflects the selected filters and account type.</td>
             </tr>
             <tr>
@@ -148,7 +160,9 @@
             <tr>
                 <td>TC008</td>
                 <td>Navigation with invalid login credentials</td>
-                <td>Attempt to log in with invalid credentials and verify the user cannot access the video filter screen.</td>
+                <td>Attempt to log in with invalid credentials and verify the user cannot access the video filter
+                    screen.
+                </td>
                 <td>User is blocked from proceeding. An appropriate error message is displayed.</td>
             </tr>
             <tr>
@@ -160,7 +174,9 @@
             <tr>
                 <td>TC010</td>
                 <td>Verify UI updates on filter application</td>
-                <td>Apply multiple filters and confirm the video list updates dynamically in the UI without requiring a page reload.</td>
+                <td>Apply multiple filters and confirm the video list updates dynamically in the UI without requiring a
+                    page reload.
+                </td>
                 <td>The video list updates in real time to reflect the applied filters.</td>
             </tr>
             </tbody>
@@ -171,9 +187,16 @@
 
 <section id="section4">
     <h2 style="justify-content: center; display: flex">Phase 2: Account Management Functionality Testing</h2>
-        <p>
-            Intro Paragraph Goes Here
-        </p>
+    <p>
+        In this testing phase, our team is validating the functionality of account tier transitions within the fitness
+        app, focusing on the user interface elements that manage the visibility of upgrade and downgrade buttons. These
+        tests ensure that users can easily upgrade or downgrade their accounts between free-tier and pro-tier states,
+        and that the UI reflects these changes in real-time. By simulating upgrades, downgrades, and invalid states, we
+        aim to confirm that the app correctly manages account state transitions and displays the appropriate buttons to
+        users. Additionally, we are testing the execution of commands triggered by these buttons, ensuring that the
+        underlying logic is functioning as expected. The following table outlines the specific test cases designed to
+        verify the proper handling of account state changes, button visibility, and the related user interface behavior.
+    </p>
     <div style="justify-content: center; display: flex">
         <table>
             <thead>
@@ -200,25 +223,33 @@
             <tr>
                 <td>TC003</td>
                 <td>Validate state transition: Free to Pro</td>
-                <td>Simulate an upgrade action for a free-tier user and verify the account transitions to the ProState.</td>
+                <td>Simulate an upgrade action for a free-tier user and verify the account transitions to the
+                    ProState.
+                </td>
                 <td>The user account transitions to ProState after a successful upgrade.</td>
             </tr>
             <tr>
                 <td>TC004</td>
                 <td>Validate state transition: Pro to Free</td>
-                <td>Simulate a downgrade action for a pro-tier user and verify the account transitions to the FreeState.</td>
+                <td>Simulate a downgrade action for a pro-tier user and verify the account transitions to the
+                    FreeState.
+                </td>
                 <td>The user account transitions to FreeState after the successful downgrade.</td>
             </tr>
             <tr>
                 <td>TC005</td>
                 <td>Validate button visibility logic</td>
-                <td>Verify that only one of the upgrade or downgrade buttons is displayed based on the user's current state.</td>
+                <td>Verify that only one of the upgrade or downgrade buttons is displayed based on the user's current
+                    state.
+                </td>
                 <td>Only the relevant button (upgrade or downgrade) is visible based on the user’s account state.</td>
             </tr>
             <tr>
                 <td>TC006</td>
                 <td>Validate Observer Pattern implementation</td>
-                <td>Ensure that UI elements update dynamically when the user's account tier changes (Free to Pro or Pro to Free).</td>
+                <td>Ensure that UI elements update dynamically when the user's account tier changes (Free to Pro or Pro
+                    to Free).
+                </td>
                 <td>UI updates in real-time, showing the correct button visibility upon account state change.</td>
             </tr>
             <tr>
@@ -236,7 +267,9 @@
             <tr>
                 <td>TC009</td>
                 <td>Verify ButtonVisibilityManager functionality</td>
-                <td>Ensure that the ButtonVisibilityManager appropriately toggles the visibility of buttons based on the user's account tier.</td>
+                <td>Ensure that the ButtonVisibilityManager appropriately toggles the visibility of buttons based on the
+                    user's account tier.
+                </td>
                 <td>Buttons are correctly hidden or displayed based on the ButtonVisibilityManager logic.</td>
             </tr>
             <tr>
@@ -257,10 +290,87 @@
     <h2 style="justify-content: center; display: flex">Phase 3: Performance Chart with User Data Testing</h2>
 
     <p>
-        Intro Paragraph Goes Here
+        For phase three of testing, our team is focusing on the integration of key functionalities in the fitness app to
+        ensure that all features are working seamlessly for both free-tier and Pro-tier users. This testing validates
+        the user experience by ensuring that the app’s performance chart and subscription management features function
+        as expected, providing users with appropriate access based on their subscription tier. Additionally, we are
+        testing the app’s responsiveness to subscription changes, ensuring that users can view and interact with the app
+        according to their subscription status. The following key areas from the app's feature set will be tested:
+        restricted access to chart sections based on subscription tier, visibility of recent activity and detailed
+        metrics, proper functioning of the FullView and LimitedView components, and accurate notification and handling
+        of subscription changes. The table below outlines the specific test cases for these requirements.
     </p>
     <div style="justify-content: center; display: flex">
-       table goes here
+        <table>
+            <thead>
+            <tr>
+                <th>Test Case ID</th>
+                <th>Test Case Objective</th>
+                <th>Test Case Description</th>
+                <th>Expected Results</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>TC001</td>
+                <td>Verify restricted sections of the chart are hidden for free-tier users.</td>
+                <td>Simulate a free-tier user attempting to access sections of the performance chart reserved for
+                    Pro-tier users.
+                </td>
+                <td>Restricted sections are not visible.</td>
+            </tr>
+            <tr>
+                <td>TC002</td>
+                <td>Verify Pro-tier users can access all sections of the chart.</td>
+                <td>Simulate a Pro-tier user accessing the performance chart.</td>
+                <td>All chart sections, including historical data and detailed metrics, are fully visible.</td>
+            </tr>
+            <tr>
+                <td>TC003</td>
+                <td>Verify recent activity display for free users.</td>
+                <td>Render the LimitedView component and check if only the last week’s data is displayed.</td>
+                <td>The component displays only recent activity data from the past week.</td>
+            </tr>
+            <tr>
+                <td>TC004</td>
+                <td>Verify Pro-tier users do not see the LimitedView component.</td>
+                <td>Attempt to render the LimitedView for a Pro-tier user.</td>
+                <td>The LimitedView component is not rendered; instead, the FullView component is displayed.</td>
+            </tr>
+            <tr>
+                <td>TC005</td>
+                <td>Verify historical data and detailed metrics for Pro users.</td>
+                <td>Render the FullView component and ensure it includes historical data, trends, and detailed
+                    metrics.
+                </td>
+                <td>The component displays all available chart data for Pro users.</td>
+            </tr>
+            <tr>
+                <td>TC006</td>
+                <td>Verify FullView component is not available for free-tier users.</td>
+                <td>Attempt to render the FullView for a free-tier user.</td>
+                <td>The FullView component is not rendered; the LimitedView component is displayed instead.</td>
+            </tr>
+            <tr>
+                <td>TC007</td>
+                <td>Verify observers are notified of subscription changes.</td>
+                <td>Change the user’s subscription status and ensure all attached observers are notified.</td>
+                <td>Each observer reacts appropriately to the subscription status change.</td>
+            </tr>
+            <tr>
+                <td>TC008</td>
+                <td>Verify observer attachment and detachment functionality based on subscription tier changes.</td>
+                <td>Simulate changes to a user’s subscription tier and confirm that the ChartManager correctly attaches
+                    or detaches observers.
+                </td>
+                <td>The user is on the Free tier, only the LimitedView-related observers are active, and
+                    FullView-related observers are detached. When the user upgrades to the Pro tier, the
+                    FullView-related observers are attached, and the LimitedView-related observers are detached.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
     </div>
     <span style="justify-content: center; display: flex; padding-top: 1em"> Table 3: Performance Chart with User Data Testing </span>
 
@@ -290,7 +400,9 @@
             <tr>
                 <td>V-1a</td>
                 <td>User applies both cardio and strength training filters to the video list</td>
-                <td>App immediately refreshes and shows all videos that are related to either cardio or strength training</td>
+                <td>App immediately refreshes and shows all videos that are related to either cardio or strength
+                    training
+                </td>
                 <td>FR-1, FR-3</td>
             </tr>
             <tr>
@@ -308,36 +420,49 @@
             <tr>
                 <td>V-2a</td>
                 <td>Free-tier user attempts to select a video that is only available to pro-user</td>
-                <td>App shows that the video is only available to pro users and displays a “upgrade” button indicating they must upgrade to access this content</td>
+                <td>App shows that the video is only available to pro users and displays a “upgrade” button indicating
+                    they must upgrade to access this content
+                </td>
                 <td>FR-4</td>
             </tr>
             <tr>
                 <td>V-2b</td>
-                <td>Free-tier user attempts to access restricted performance chart metrics, such as historical workout trends</td>
-                <td>User sees grayed-out sections in the performance chart and receives an upgrade prompt to access locked content</td>
+                <td>Free-tier user attempts to access restricted performance chart metrics, such as historical workout
+                    trends
+                </td>
+                <td>User sees grayed-out sections in the performance chart and receives an upgrade prompt to access
+                    locked content
+                </td>
                 <td>FR-7, FR-8</td>
             </tr>
             <tr>
                 <td>V-3a</td>
-                <td>Free-tier user attempts to select the upgrade button to upgrade their account to the pro version</td>
+                <td>Free-tier user attempts to select the upgrade button to upgrade their account to the pro version
+                </td>
                 <td>User successfully upgrades their account to the pro version</td>
                 <td>FR-4</td>
             </tr>
             <tr>
                 <td>V-3b</td>
-                <td>Pro user attempts to select the downgrade button to downgrade their account to the free-tier version</td>
+                <td>Pro user attempts to select the downgrade button to downgrade their account to the free-tier
+                    version
+                </td>
                 <td>User successfully downgrades their account to the free-tier version</td>
                 <td>FR-5</td>
             </tr>
             <tr>
                 <td>V-4a</td>
-                <td>After upgrading to a pro-tier account, user’s app immediately refreshes to show previously locked pro content</td>
+                <td>After upgrading to a pro-tier account, user’s app immediately refreshes to show previously locked
+                    pro content
+                </td>
                 <td>User is now able to access content specifically available to pro-tier users</td>
                 <td>FR-6, FR-9</td>
             </tr>
             <tr>
                 <td>V-4b</td>
-                <td>After downgrading to a free-tier account, user’s app refreshes to lock previously available pro content</td>
+                <td>After downgrading to a free-tier account, user’s app refreshes to lock previously available pro
+                    content
+                </td>
                 <td>User is unable to continue to access content specifically available to pro-tier users</td>
                 <td>FR-6, FR-9</td>
             </tr>
@@ -367,19 +492,24 @@
             </tr>
             <tr>
                 <td>V-8b</td>
-                <td>Measure the time taken for the video list to refresh after a user removes all filters to the list</td>
+                <td>Measure the time taken for the video list to refresh after a user removes all filters to the list
+                </td>
                 <td>App refreshes within 1 second and shows all videos available on the platform</td>
                 <td>NFR-1</td>
             </tr>
             <tr>
                 <td>V-9a</td>
-                <td>Measure the time taken for the app to refresh after a free-tier user upgrades to the pro version</td>
-                <td>Verify that the account status is updated automatically in the backend and reflected in the UI within 1 second</td>
+                <td>Measure the time taken for the app to refresh after a free-tier user upgrades to the pro version
+                </td>
+                <td>Verify that the account status is updated automatically in the backend and reflected in the UI
+                    within 1 second
+                </td>
                 <td>NFR-2</td>
             </tr>
             <tr>
                 <td>V-9b</td>
-                <td>Measure the time taken for the app to refresh after a pro user upgrades to the free-tier version</td>
+                <td>Measure the time taken for the app to refresh after a pro user upgrades to the free-tier version
+                </td>
                 <td>Verify that the UI refreshes within 1 second to reflect the change to the account status</td>
                 <td>NFR-2</td>
             </tr>
