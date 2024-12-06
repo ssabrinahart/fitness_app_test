@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS5744 Project 2 - Fitness App Test</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<!-- Top Navigation Bar with Title -->
+<nav class="navbar">
+    <a href="#top" class="navbar-title">
+        Testing: Fitness App
+    </a>
+    <div class="navbar-links">
+        <a href="#section1">Test Scope</a>
+        <a href="#section2">Test Plan</a>
+        <a href="#section3">Phase One</a>
+        <a href="#section4">Phase Two</a>
+        <a href="#section5">Phase Three</a>
+        <a href="#section6">Validation Testing</a>
+    </div>
+</nav>
+<!-- Content Sections -->
+<section id="section1">
+    <h2 style="justify-content: center; display: flex">Test Scope</h2>
+    <p>
+        The service we will be testing is a fitness app that follows a freemium model. This means the application is
+        free to use, but has premium features that are locked behind a paywall. This application has three core software
+        features:
+    </p>
+    <p class="abList">1. A list of videos that can be filtered by labels (e.g., length, body part, and whether the video
+        is available to all users or premium-only).
+    </p>
+    <p class="abList">2. The ability for users to upgrade and downgrade their accounts.
+    </p>
+    <p class="abList">3. Performance charts that have limited data visibility, depending on whether the user has a free
+        or premium account.
+    </p>
+    <p>
+        This document will cover testing strategies for functional, performance, and internal design characteristics of
+        the high-level design presented. More specifically, this document will look at:
+    </p>
+
+    <p class="abList"> &#x2022; The integration of the product's video filtering function and video filter user
+        interface
+    </p>
+    <p class="abList"> &#x2022; The functionality of the product's account management features
+    </p>
+    <p class="abList"> &#x2022; The functionality differences between 'free' and 'premium' accounts performance tracking
+    </p>
+    <p class="abList"> &#x2022; Validation testing to ensure functional and non-functional requirements are met
+    </p>
+</section>
+
+<section id="section2">
+    <h2 style="justify-content: center; display: flex">Test Plan</h2>
+    <p>
+        This testing strategy will follow both a top-down and bottom-up integration testing approach where the testing
+        will be conducted in 3 separate phases. The decision to use these approaches was made since the tests will be
+        based on a high-level design. The high-level design of the system highlights the system's overall structure and
+        main modules, and user workflows. A top-down approach allows for testing of the main modules and user-visible
+        features early on. At the same time, the bottom-up testing approach ensures that the main modules are thoroughly
+        validated. By combining both of these testing approaches, we are able to analyze both the high and low-level
+        aspects of the system for optimal coverage.
+    </p>
+
+    <p>
+        The system has a modular architecture that has three main modules: Video List Filter Module, Account
+        Upgrade/Downgrade Management Module, and Performance Chart View Module. The decision to break the integration
+        testing into three phases was made since it aligns with the system's architecture.
+    </p>
+
+    <p>
+        Phase 1 will consist of testing the Video List Filter Module. It will test the video list filter functionality
+        and integration with a user interface. This phase is necessary as it isolates content discovery and filtering
+        functionality, which is foundational to the user experience. Phase 2 will test the Account Upgrade/Downgrade
+        Management Module, which is the account tier management functionality. This phase is necessary as the account
+        upgrade/downgrade process is central to the user experience, as it enables premium-level features. The final
+        phase will test the Performance Chart View Module, which is the fitness metrics visualization. This module is
+        dependent on the proper functioning of the account management system, which is why it is the last phase.
+    </p>
+
+</section>
+
+<section id="section3">
+    <h2 style="justify-content: center; display: flex">Phase 1: Video Filtering and User Interface Integration
+        Testing</h2>
+    <p>
+        Intro Paragraph Goes Here
+    </p>
+    <div style="justify-content: center; display: flex">
+
+        <table>
+            <thead>
+            <tr>
+                <th>Test Case ID</th>
+                <th>Test Case Objective</th>
+                <th>Test Case Description</th>
+                <th>Expected Results</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>TC001</td>
+                <td>Add a filter by label</td>
+                <td>Add a single label filter using the FilterByLabelCommand.</td>
+                <td>The specified label filter is added to the FilterManager. Observers are notified.</td>
+            </tr>
+            <tr>
+                <td>TC002</td>
+                <td>Remove a specific label filter</td>
+                <td>Remove a specific label from the filter list.</td>
+                <td>The specified label filter is removed. Observers are notified of the update.</td>
+            </tr>
+            <tr>
+                <td>TC003</td>
+                <td>Clear all filters</td>
+                <td>Clear all currently applied filters using the ClearAllFiltersCommand.</td>
+                <td>All filters are cleared. Observers (e.g., UI and API) are notified.</td>
+            </tr>
+            <tr>
+                <td>TC004</td>
+                <td>Video filtering for pro vs free accounts</td>
+                <td>Log in with a free account, navigate to the video list, and ensure only free videos are displayed.</td>
+                <td>Free account users only see videos labeled as free. Pro videos are hidden.</td>
+            </tr>
+            <tr>
+                <td>TC005</td>
+                <td>Video filtering for pro accounts</td>
+                <td>Log in with a pro account, navigate to the video list, and ensure both free and pro videos are displayed.</td>
+                <td>Pro account users see all videos labeled as free and pro.</td>
+            </tr>
+            <tr>
+                <td>TC006</td>
+                <td>Confirm video filtering based on account</td>
+                <td>Apply filters by genre, length, and account type, and validate the resulting video list matches expectations.</td>
+                <td>Video list accurately reflects the selected filters and account type.</td>
+            </tr>
+            <tr>
+                <td>TC007</td>
+                <td>Navigation flow from login to homepage</td>
+                <td>Log in with valid credentials and navigate through the homepage to the video filtering screen.</td>
+                <td>Successful navigation to the video filter screen. UI is responsive and functional.</td>
+            </tr>
+            <tr>
+                <td>TC008</td>
+                <td>Navigation with invalid login credentials</td>
+                <td>Attempt to log in with invalid credentials and verify the user cannot access the video filter screen.</td>
+                <td>User is blocked from proceeding. An appropriate error message is displayed.</td>
+            </tr>
+            <tr>
+                <td>TC009</td>
+                <td>Undo after clearing all filters</td>
+                <td>Clear all filters using ClearAllFiltersCommand and then undo the operation.</td>
+                <td>All previously cleared filters are restored. Observers are notified of the rollback.</td>
+            </tr>
+            <tr>
+                <td>TC010</td>
+                <td>Verify UI updates on filter application</td>
+                <td>Apply multiple filters and confirm the video list updates dynamically in the UI without requiring a page reload.</td>
+                <td>The video list updates in real time to reflect the applied filters.</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <span style="justify-content: center; display: flex; padding-top: 1em"> Table 1: Video Filtering and User Interface Integration </span>
+</section>
+
+<section id="section4">
+    <h2 style="justify-content: center; display: flex">Phase 2: Account Management Functionality Testing</h2>
+        <p>
+            Intro Paragraph Goes Here
+        </p>
+    <div style="justify-content: center; display: flex">
+        <table>
+            <thead>
+            <tr>
+                <th>Test Case ID</th>
+                <th>Test Case Objective</th>
+                <th>Test Case Description</th>
+                <th>Expected Results</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>TC001</td>
+                <td>Verify upgrade button visibility</td>
+                <td>Ensure the upgrade button is displayed when a free-tier user attempts to access pro content.</td>
+                <td>The upgrade button is visible for the user attempting to access pro content.</td>
+            </tr>
+            <tr>
+                <td>TC002</td>
+                <td>Verify downgrade button visibility</td>
+                <td>Ensure the downgrade button is displayed when a pro-tier user accesses account settings.</td>
+                <td>The downgrade button is visible in account settings for pro-tier users.</td>
+            </tr>
+            <tr>
+                <td>TC003</td>
+                <td>Validate state transition: Free to Pro</td>
+                <td>Simulate an upgrade action for a free-tier user and verify the account transitions to the ProState.</td>
+                <td>The user account transitions to ProState after a successful upgrade.</td>
+            </tr>
+            <tr>
+                <td>TC004</td>
+                <td>Validate state transition: Pro to Free</td>
+                <td>Simulate a downgrade action for a pro-tier user and verify the account transitions to the FreeState.</td>
+                <td>The user account transitions to FreeState after the successful downgrade.</td>
+            </tr>
+            <tr>
+                <td>TC005</td>
+                <td>Validate button visibility logic</td>
+                <td>Verify that only one of the upgrade or downgrade buttons is displayed based on the user's current state.</td>
+                <td>Only the relevant button (upgrade or downgrade) is visible based on the user’s account state.</td>
+            </tr>
+            <tr>
+                <td>TC006</td>
+                <td>Validate Observer Pattern implementation</td>
+                <td>Ensure that UI elements update dynamically when the user's account tier changes (Free to Pro or Pro to Free).</td>
+                <td>UI updates in real-time, showing the correct button visibility upon account state change.</td>
+            </tr>
+            <tr>
+                <td>TC007</td>
+                <td>Validate command execution for UpgradeCommand</td>
+                <td>Execute the upgrade button and verify that the upgrade action is successfully triggered.</td>
+                <td>UpgradeCommand executes successfully, changing the user’s tier to ProState.</td>
+            </tr>
+            <tr>
+                <td>TC008</td>
+                <td>Validate command execution for DowngradeCommand</td>
+                <td>Execute the downgrade button and verify that the downgrade action is successfully triggered.</td>
+                <td>DowngradeCommand executes successfully, changing the user’s tier to FreeState.</td>
+            </tr>
+            <tr>
+                <td>TC009</td>
+                <td>Verify ButtonVisibilityManager functionality</td>
+                <td>Ensure that the ButtonVisibilityManager appropriately toggles the visibility of buttons based on the user's account tier.</td>
+                <td>Buttons are correctly hidden or displayed based on the ButtonVisibilityManager logic.</td>
+            </tr>
+            <tr>
+                <td>TC010</td>
+                <td>Validate error handling for invalid state</td>
+                <td>Simulate a scenario where neither FreeState nor ProState is assigned and verify error handling.</td>
+                <td>The system logs an error and prevents access to features without a valid state assignment.</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <span style="justify-content: center; display: flex; padding-top: 1em"> Table 2: Account Management Functionality Testing </span>
+
+</section>
+
+<section id="section5">
+
+    <h2 style="justify-content: center; display: flex">Phase 3: Performance Chart with User Data Testing</h2>
+
+    <p>
+        Intro Paragraph Goes Here
+    </p>
+    <div style="justify-content: center; display: flex">
+       table goes here
+    </div>
+    <span style="justify-content: center; display: flex; padding-top: 1em"> Table 3: Performance Chart with User Data Testing </span>
+
+
+</section>
+
+<section id="section6">
+    <h2 style="justify-content: center; display: flex">Validation Tests</h2>
+
+    <p>
+        In this phase of testing, we validate that the software meets all of the functional and non-functional
+        requirements. The test cases analyze the modules and design elements of the fitness application to ensure they
+        adhere to the requirements.
+    </p>
+
+    <div style="justify-content: center; display: flex">
+        <table>
+            <thead>
+            <tr>
+                <th>Test Case ID</th>
+                <th>Test Description</th>
+                <th>Expected Results</th>
+                <th>Requirement Satisfied</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>V-1a</td>
+                <td>User applies both cardio and strength training filters to the video list</td>
+                <td>App immediately refreshes and shows all videos that are related to either cardio or strength training</td>
+                <td>FR-1, FR-3</td>
+            </tr>
+            <tr>
+                <td>V-1b</td>
+                <td>User who has previously applied multiple filters removes one but keeps the other</td>
+                <td>App immediately refreshes and user will only see videos associated with the remaining filter</td>
+                <td>FR-1, FR-3</td>
+            </tr>
+            <tr>
+                <td>V-1c</td>
+                <td>User clears all filters that are selected</td>
+                <td>App removes all filters and shows every video available on the app</td>
+                <td>FR-2, FR-3</td>
+            </tr>
+            <tr>
+                <td>V-2a</td>
+                <td>Free-tier user attempts to select a video that is only available to pro-user</td>
+                <td>App shows that the video is only available to pro users and displays a “upgrade” button indicating they must upgrade to access this content</td>
+                <td>FR-4</td>
+            </tr>
+            <tr>
+                <td>V-2b</td>
+                <td>Free-tier user attempts to access restricted performance chart metrics, such as historical workout trends</td>
+                <td>User sees grayed-out sections in the performance chart and receives an upgrade prompt to access locked content</td>
+                <td>FR-7, FR-8</td>
+            </tr>
+            <tr>
+                <td>V-3a</td>
+                <td>Free-tier user attempts to select the upgrade button to upgrade their account to the pro version</td>
+                <td>User successfully upgrades their account to the pro version</td>
+                <td>FR-4</td>
+            </tr>
+            <tr>
+                <td>V-3b</td>
+                <td>Pro user attempts to select the downgrade button to downgrade their account to the free-tier version</td>
+                <td>User successfully downgrades their account to the free-tier version</td>
+                <td>FR-5</td>
+            </tr>
+            <tr>
+                <td>V-4a</td>
+                <td>After upgrading to a pro-tier account, user’s app immediately refreshes to show previously locked pro content</td>
+                <td>User is now able to access content specifically available to pro-tier users</td>
+                <td>FR-6, FR-9</td>
+            </tr>
+            <tr>
+                <td>V-4b</td>
+                <td>After downgrading to a free-tier account, user’s app refreshes to lock previously available pro content</td>
+                <td>User is unable to continue to access content specifically available to pro-tier users</td>
+                <td>FR-6, FR-9</td>
+            </tr>
+            <tr>
+                <td>V-5</td>
+                <td>Pro-tier user attempts to access advanced performance chart metrics</td>
+                <td>User is able to successfully access detailed information relating to their workout metrics</td>
+                <td>FR-7</td>
+            </tr>
+            <tr>
+                <td>V-6</td>
+                <td>Free-tier users attempt to downgrade their account</td>
+                <td>User is unable to press the downgrade button as they are already at the lowest tier</td>
+                <td>FR-8</td>
+            </tr>
+            <tr>
+                <td>V-7</td>
+                <td>Free-tier user attempts to access pro-only features after a failed upgrade attempt</td>
+                <td>App confirms access is denied and keeps showing upgrade button until the upgrade is successful</td>
+                <td>FR-4</td>
+            </tr>
+            <tr>
+                <td>V-8a</td>
+                <td>Measure the time taken for the video list to refresh after a user applies a filter to the list</td>
+                <td>App refreshes within 1 second after the filter is applied to show relevant results</td>
+                <td>NFR-1</td>
+            </tr>
+            <tr>
+                <td>V-8b</td>
+                <td>Measure the time taken for the video list to refresh after a user removes all filters to the list</td>
+                <td>App refreshes within 1 second and shows all videos available on the platform</td>
+                <td>NFR-1</td>
+            </tr>
+            <tr>
+                <td>V-9a</td>
+                <td>Measure the time taken for the app to refresh after a free-tier user upgrades to the pro version</td>
+                <td>Verify that the account status is updated automatically in the backend and reflected in the UI within 1 second</td>
+                <td>NFR-2</td>
+            </tr>
+            <tr>
+                <td>V-9b</td>
+                <td>Measure the time taken for the app to refresh after a pro user upgrades to the free-tier version</td>
+                <td>Verify that the UI refreshes within 1 second to reflect the change to the account status</td>
+                <td>NFR-2</td>
+            </tr>
+            <tr>
+                <td>V-10</td>
+                <td>While on the performance chart screen, user upgrades their account to access locked data</td>
+                <td>Verify that the UI refreshes within 2 seconds to show updated chart data</td>
+                <td>NFR-3</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <span style="justify-content: center; display: flex; padding-top: 1em"> Table 4: Validation Tests </span>
+</section>
+
+<section>
+    <h2 style="justify-content: center; display: flex">CS 5744: Project 2</h2>
+    <p>
+        <strong>Group Members:</strong>
+        Sabrina Hart, Haddi Amjad, Hannah Koehler, Sabaat Haroon,
+        Sanjana Venkatesh
+    </p>
+    <p>
+        <a href="https://sites.google.com/vt.edu/cs5744project01/">Fitness App Design Site</a>
+    </p>
+</section>
+</body>
+</html>

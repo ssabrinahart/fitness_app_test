@@ -1,0 +1,125 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e0bf80;
+    padding: 1em;
+    position: sticky;
+    top: 0;
+}
+
+.navbar-title {
+    text-decoration: none;
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.navbar-links a {
+    color: black;
+    text-decoration: none;
+    padding: 0.5em 1em;
+}
+
+.navbar-links a:hover {
+    text-decoration: underline;
+    text-underline-offset: 8px;
+    font-weight: bold;
+}
+
+/* Sections */
+section {
+    width: 95%;
+    padding: 3em;
+    margin: 2em auto;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle drop shadow */
+}
+
+/* Padding for paragraph text within sections */
+section p {
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 1em;
+}
+
+.abList {
+    padding-left: 4em;
+}
+section h3 {
+    padding-top: 1em;
+    padding-left: 1.7em;
+}
+
+.list {
+    padding-left: 2em;
+}
+
+.section-image {
+    padding-left: 2em;
+    height: 500px; /* Maintains aspect ratio */
+    margin: 1em 0; /* Adds spacing above and below */
+}
+
+.apiDiagram {
+    height: 500px;
+}
+
+.imagesCentered {
+    display: flex;
+    justify-content: center;
+    padding-top: 1em
+}
+
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+table {
+    width: 96%;
+    justify-content: center;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #3d3d3d;
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
